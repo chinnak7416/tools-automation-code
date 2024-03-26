@@ -9,7 +9,7 @@
   ansible.builtin.template:
     src: prometheus.service
     dest: /etc/systemd/system/prometheus.service
-    remote_src: yes
+
 
 - name: Start Prometheus Service
   ansible.builtin.systemd_service:
