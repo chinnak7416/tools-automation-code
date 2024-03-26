@@ -2,10 +2,10 @@
 Description = Prometheus Service
 
 [Service]
-User=prometheus server service
-workingDirectory=/opt/prometheus-{{ version }}.linux-amd64
+User=bin
+WorkingDirectory=/opt/prometheus-{{ version }}.linux-amd64
 ExecStart=/opt/prometheus-{{ version }}.linux-amd64/prometheus
-SyslogIdentifier=backend
+SyslogIdentifier=prometheus
 
 [Install]
 WantedBy=multi-user.target
