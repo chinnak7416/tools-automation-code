@@ -2,6 +2,8 @@ resource "aws_instance" "instance" {
   ami                    = data.aws_ami.ami.image_id
   instance_type          = var.instance_type
   vpc_security_group_ids = [data.aws_security_group.selected.id]
+  iam_instance_profile   = aws_iam_instance_profile.instance_profile.name
+
 
   tags = {
     Name = var.tool_name
@@ -13,7 +15,7 @@ resource "aws_route53_record" "record" {
   name    = "${var.tool_name}-internal"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.instance.private_ip]
+  records = [aws_instance.instance.public_ip]
 }
 
 resource "aws_iam_role" "role" {
