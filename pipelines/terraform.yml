@@ -4,7 +4,7 @@ pipelines:
     group: Terraform
 
     materials:
-      git-737bd8d:
+      git-5635925:
         git: https://github.com/chinnak7416/tools-automation-code.git
         shallow_clone: false
         auto_update: true
