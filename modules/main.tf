@@ -12,9 +12,14 @@ resource "aws_instance" "instance" {
     }
   }
 
-
   tags = {
     Name = var.tool_name
+  }
+
+  lifecycle {
+    ignore_changes = [
+      ami,
+    ]
   }
 }
 
