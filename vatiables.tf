@@ -16,6 +16,11 @@ variable "tools" {
       instance_type = "r5.large"
       policy_resource_list = []
     }
+    ci-server = {
+      instance_type = "t3.small"
+      policy_resource_list = []
+    }
+
   }
 }
 
