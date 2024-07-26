@@ -1,0 +1,37 @@
+- name: Set Name in Prompt
+  ansible.builtin.shell: set-prompt sonarqube
+
+- name: Add Sonarqube User
+  ansible.builtin.user:
+    name: sonar
+
+- name: Install Java
+  ansible.builtin.dnf:
+    name: java-17-openjdk
+    state: installed
+
+- name: Create Sonarqube Directory
+  ansible.builtin.file:
+    path: /opt/sonarqube
+    state: directory
+    owner: sonar
+    group: sonar
+
+- name: Download Sonarqube
+  ansible.builtin.unarchive:
+    src: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.5.0.89998.zip
+    dest: /opt/sonarqube
+    remote_src: yes
+  become_user: sonar
+
+- name: Setup Service File
+  ansible.builtin.template:
+    src: sonarqube.service
+    dest: /etc/systemd/system/sonarqube.service
+
+- name: Start Sonarqube
+  ansible.builtin.systemd_service:
+    name: sonarqube
+    state: started
+    enabled: yes
+    daemon-reload: yes
