@@ -33,16 +33,16 @@
   args:
     chdir: /home/ec2-user/github-runner
 
-#- name: Disable default NodeJS Version Module
-#  ansible.builtin.shell: dnf module disable nodejs -y
-#
-#- name: Enable NodeJS module for V20
-#  ansible.builtin.shell: dnf module disable nodejs -y
-#
-#- name: Install NodeJS
-#  ansible.builtin.dnf:
-#    name: nodejs
-#    state: installed
+- name: Disable default NodeJS Version Module
+  ansible.builtin.shell: dnf module disable nodejs -y
+
+- name: Enable NodeJS module for V20
+  ansible.builtin.shell: dnf module disable nodejs -y
+
+- name: Install NodeJS
+  ansible.builtin.dnf:
+    name: nodejs
+    state: installed
 
 - name: Install Java
   ansible.builtin.dnf:
