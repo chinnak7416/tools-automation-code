@@ -23,7 +23,7 @@
 #    chdir: /home/ec2-user/github-runner
 
 - name: Install Runner
-  ansible.builtin.shell: ./config.sh --unattended --url https://github.com/devopsb78 --token {{secrets.GITHUB_RUNNER_TOKEN}}
+  ansible.builtin.shell: ./config.sh remove --token {{secrets.GITHUB_RUNNER_TOKEN}} ; ./config.sh --unattended --url https://github.com/devopsb78 --token {{secrets.GITHUB_RUNNER_TOKEN}}
   args:
     chdir: /home/ec2-user/github-runner
   become_user: ec2-user
@@ -44,19 +44,19 @@
 #    name: nodejs
 #    state: installed
 
-- name: Install Java
-  ansible.builtin.dnf:
-    name: java-17-openjdk
-    state: installed
-
-- name: Download Sonarqube
-  ansible.builtin.unarchive:
-    src: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-    dest: /opt
-    remote_src: yes
-
-- name: Install Zip
-  ansible.builtin.dnf:
-    name: zip
-    state: installed
+#- name: Install Java
+#  ansible.builtin.dnf:
+#    name: java-17-openjdk
+#    state: installed
+#
+#- name: Download Sonarqube
+#  ansible.builtin.unarchive:
+#    src: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+#    dest: /opt
+#    remote_src: yes
+#
+#- name: Install Zip
+#  ansible.builtin.dnf:
+#    name: zip
+#    state: installed
 
