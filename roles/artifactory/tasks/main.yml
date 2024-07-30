@@ -16,3 +16,9 @@
     name: jfrog-artifactory-oss
     state: installed
     disable_gpg_check: true
+
+- name: Start artifactory Service
+  ansible.builtin.systemd_service:
+    name: artifactory
+    state: started
+    enabled: yes
