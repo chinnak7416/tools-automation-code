@@ -48,7 +48,7 @@
 
 - name: Start Artifactory
   ansible.builtin.systemd_service:
-    name: Artifactory
+    name: artifactory
     state: started
     enabled: yes
     daemon-reload: yes
