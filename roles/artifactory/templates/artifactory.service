@@ -9,8 +9,8 @@ GuessMainPID=yes
 Restart=always
 RestartSec=60
 PIDFile=/var/run/artifactory.pid
-ExecStart=/opt/artifactory-oss-7.71.9/app/bin/artifactoryManage.sh start
-ExecStop=/opt/artifactory-oss-7.71.9/app/bin/artifactoryManage.sh stop
+ExecStart=/opt/artifactory-oss-7.71.9/artifactory-oss-7.71.9/app/bin/artifactoryManage.sh start
+ExecStop=/opt/artifactory-oss-7.71.9/artifactory-oss-7.71.9/app/bin/artifactoryManage.sh stop
 
 [Install]
 WantedBy=multi-user.target
