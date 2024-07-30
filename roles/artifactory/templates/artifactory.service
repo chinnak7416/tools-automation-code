@@ -1,18 +1,13 @@
 [Unit]
-Description=Artifactory
-After=network.target
+Description = Artifactory Service
 
 [Service]
-Type=forking
-GuessMainPID=yes
-Restart=always
-RestartSec=5
-PIDFile=/var/opt/jfrog/run/artifactory.pid
-ExecStart=/opt/jfrog/artifactory-oss-7.71.9/bin/artifactoryManage.sh start
-ExecStop=/opt/jfrog/artifactory-oss-7.71.9/bin/artifactoryManage.sh stop
+User=artifactory
 
+ExecStart=/opt/artifactory-oss-7.71.9/bin/artifactoryManage.sh start
+SyslogIdentifier=artifactory
+Type=forking
 
 [Install]
 WantedBy=multi-user.target
-Alias=artifactory.service
 
