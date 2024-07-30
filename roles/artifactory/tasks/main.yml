@@ -36,7 +36,7 @@
 
 - name: Download Artifactory
   ansible.builtin.unarchive:
-    src: curl -L https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.71.9/jfrog-artifactory-oss-7.71.9-linux.tar.gz
+    src: https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.71.9/jfrog-artifactory-oss-7.71.9-linux.tar.gz
     dest: /opt/artifactory-oss-7.71.9
     remote_src: yes
   become_user: artifactory
