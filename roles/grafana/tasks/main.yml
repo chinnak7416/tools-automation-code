@@ -21,17 +21,17 @@
     src: node-exporter.json
     dest: /tmp/node-exporter.json
 
-#- name: Create a folder
-#  community.grafana.grafana_folder:
-#    grafana_url: https://localhost:3000
-#    grafana_user: "admin"
-#    grafana_password: "DevOps321"
-#    title: "ProjectDashboards"
-#    state: present
+- name: Create a folder
+  community.grafana.grafana_folder:
+    grafana_url: http://localhost:3000
+    grafana_user: "admin"
+    grafana_password: "DevOps321"
+    title: "ProjectDashboards"
+    state: present
 
 - name: Import Grafana dashboard for Node-exporter
   community.grafana.grafana_dashboard:
-    grafana_url: https://localhost:3000
+    grafana_url: http://localhost:3000
     grafana_user: "admin"
     grafana_password: "DevOps321"
     state: present
