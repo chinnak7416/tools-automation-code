@@ -16,29 +16,20 @@
     src: prom-datasource.yml
     dest: /etc/grafana/provisioning/datasources/prom.yml
 
-- name: Copy Json File
-  ansible.builtin.copy:
-    src: node-exporter.json
-    dest: /tmp/node-exporter.json
-
 - name: Create a folder
   community.grafana.grafana_folder:
     grafana_url: http://localhost:3000
-    grafana_user: "admin"
-    grafana_password: "DevOps321"
+    grafana_user: "{{secrets.grafana_user}}"
+    grafana_password: "{{secrets.grafana_password}}"
     title: "ProjectDashboards"
     state: present
 
-- name: Import Grafana dashboard for Node-exporter
-  community.grafana.grafana_dashboard:
-    grafana_url: http://localhost:3000
-    grafana_user: "admin"
-    grafana_password: "DevOps321"
-    state: present
-    commit_message: Updated by ansible
-    overwrite: true
-    path: /tmp/node-exporter.json
-    folder: ProjectDashboards
+- name: Include task list in play
+  ansible.builtin.include_tasks:
+    file: import-dashboard.yml
+  loop:
+    - node-exporter
+    - caddy
 
 - name: Start Grafana service
   ansible.builtin.systemd_service:

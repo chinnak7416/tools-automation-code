@@ -1,0 +1,15 @@
+- name: Copy Json File
+  ansible.builtin.copy:
+    src: {{item}}.json
+    dest: /tmp/{{item}}.json
+
+- name: Import Grafana dashboard for Node-exporter & caddy
+  community.grafana.grafana_dashboard:
+    grafana_url: http://localhost:3000
+    grafana_user: "{{secrets.grafana_user}}"
+    grafana_password: "{{secrets.grafana_password}}"
+    state: present
+    commit_message: Updated by ansible
+    overwrite: true
+    path: /tmp/{{item}}.json
+    folder: ProjectDashboards
