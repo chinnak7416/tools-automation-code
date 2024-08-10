@@ -14,19 +14,19 @@
       - jenkins
     state: installed
 
-#- name: Create Init Directory
-#  ansible.builtin.file:
-#    path: /var/lib/jenkins/init.groovy.d
-#    state: directory
-#
-#- name: Copy Init Scripts
-#  ansible.builtin.template:
-#    src: "{{item}}.groovy"
-#    dest: /var/lib/jenkins/init.groovy.d/{{item}}.groovy
-#  loop:
-#    - 01-wizard
-#    - 02-admin-user
-#    - 03-plugins
+- name: Create Init Directory
+  ansible.builtin.file:
+    path: /var/lib/jenkins/init.groovy.d
+    state: directory
+
+- name: Copy Init Scripts
+  ansible.builtin.template:
+    src: "{{item}}.groovy"
+    dest: /var/lib/jenkins/init.groovy.d/{{item}}.groovy
+  loop:
+    - 01-wizard
+    - 02-admin-user
+    - 03-plugins
 
 - name: Start Jenkins
   ansible.builtin.systemd_service:
