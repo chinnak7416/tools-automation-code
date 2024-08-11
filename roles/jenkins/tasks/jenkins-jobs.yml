@@ -1,4 +1,4 @@
-- name: Install python-jenkins
+- name: Install jenkins-python
   ansible.builtin.pip:
     name: python-jenkins
   executable: pip3.9
