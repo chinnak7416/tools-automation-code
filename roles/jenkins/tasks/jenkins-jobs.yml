@@ -10,7 +10,7 @@
 
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
-    config: "{{ lookup('file', '/tmp/test.xml') }}"
+    config: "{{ lookup('file', '/templates/jobs/pipeline.xml') }}"
     name: test
     password: "{{secrets.jenkins_password}}"
     url: http://jenkins-internal.ramdevops78.online:8080
