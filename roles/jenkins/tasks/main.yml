@@ -1,9 +1,9 @@
 - name: Include task list in play
   ansible.builtin.include_tasks:
-    file: jenkins-setup.yaml
+    file: jenkins-setup.yml
   when: jenkins_setup | bool
 
 - name: Include task list in play
   ansible.builtin.include_tasks:
-    file: jenkins-jobs.yaml
+    file: jenkins-jobs.yml
   when: jenkins_jobs | bool
