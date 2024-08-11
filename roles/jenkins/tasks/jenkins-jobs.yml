@@ -3,10 +3,10 @@
     name: python-jenkins
     executable: pip3.9
 
-- name: Create Job xml file
-  ansible.builtin.template:
-    src: jobs/pipeline.xml
-    dest: /tmp/test.xml
+#- name: Create Job xml file
+#  ansible.builtin.template:
+#    src: jobs/pipeline.xml
+#    dest: /tmp/test.xml
 
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
