@@ -7,6 +7,7 @@
   ansible.builtin.template:
     src: jobs/pipeline.xml
     dest: /tmp/{{item}}.xml
+  delegate_to: localhost
 
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
