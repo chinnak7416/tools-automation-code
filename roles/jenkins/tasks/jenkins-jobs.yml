@@ -1,9 +1,9 @@
-- name: Install jenkins-python
+- name: Install python-jenkins
   ansible.builtin.pip:
     name: python-jenkins
-  executable: pip3.9
+    executable: pip3.9
 
-- name: Copy  Job xml file
+- name: Create Job xml file
   ansible.builtin.template:
     src: jobs/pipeline.xml
     dest: /tmp/{{item}}.xml
