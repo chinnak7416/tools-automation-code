@@ -5,7 +5,7 @@
 
 - name: Create Job xml file
   ansible.builtin.template:
-    src: jobs/mpipeline.xml
+    src: jobs/mbpipeline.xml
     dest: /tmp/{{item}}.xml
   loop:
     - frontend
