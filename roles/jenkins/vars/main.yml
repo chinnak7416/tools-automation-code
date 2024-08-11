@@ -1,2 +1,5 @@
 vault_token: "{{ lookup('ansible.builtin.env', 'vault_token') }}"
 secrets: "{{lookup('hashi_vault', 'secret=common/data/common token={{ vault_token }} url=https://vault.ramdevops78.online:8200 validate_certs=False')}}"
+jenkins_setup: false
+jenkins_jobs: false
+

@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  jenkins:
+  jenkins_jobs:
     group: Tools
     materials:
       git-f14e4aa:
@@ -18,5 +18,5 @@ pipelines:
           jobs:
             ansible:
               tasks:
-                - exec: { command: ansible-playbook,arguments: ["-i","jenkins-internal.ramdevops78.online,",  "tools.yml", "-e", "tool_name=jenkins", "-e", "ansible_user=ec2-user", "-e", "ansible_password=DevOps321", "-e", "jenkins_setup=true"], run_if: passed}
+                - exec: { command: ansible-playbook,arguments: ["-i","jenkins-internal.ramdevops78.online,",  "tools.yml", "-e", "tool_name=jenkins", "-e", "ansible_user=ec2-user", "-e", "ansible_password=DevOps321", "-e", "jenkins_jobs=true"], run_if: passed}
 
