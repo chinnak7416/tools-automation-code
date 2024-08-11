@@ -11,6 +11,7 @@
     - frontend
     - backend
   delegate_to: localhost
+  become: false
 
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
