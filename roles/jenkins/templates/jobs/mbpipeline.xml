@@ -16,7 +16,12 @@
         <numToKeep>-1</numToKeep>
         <abortBuilds>false</abortBuilds>
     </orphanedItemStrategy>
-    <triggers/>
+    <triggers>
+        <com.igalg.jenkins.plugins.mswt.trigger.ComputedFolderWebHookTrigger plugin="multibranch-scan-webhook-trigger@1.0.11">
+            <spec></spec>
+            <token>expense-{{item}}</token>
+        </com.igalg.jenkins.plugins.mswt.trigger.ComputedFolderWebHookTrigger>
+    </triggers>
     <disabled>false</disabled>
     <sources class="jenkins.branch.MultiBranchProject$BranchSourceList" plugin="branch-api@2.1178.v969d9eb_c728e">
         <data>
@@ -42,4 +47,3 @@
         <scriptPath>Jenkinsfile</scriptPath>
     </factory>
 </org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject>
-
